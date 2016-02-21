@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "PeopleManager.h"
+
 
 @interface AppDelegate ()
 
