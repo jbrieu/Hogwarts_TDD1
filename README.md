@@ -13,4 +13,6 @@ Here we learn :
  - parsing json
  - No NSLog
  - No UI
- - 
+ - Collections
+ - Properties
+ - Shortcuts : Cmd+shift+U (compile unit tests)
