@@ -11,3 +11,6 @@ Here we learn :
  - enforcing rules on objects in Tests 
  - loading files
  - parsing json
+ - No NSLog
+ - No UI
+ - 
