@@ -1,6 +1,6 @@
-[{"id":1,"gender":"Female","first_name":"Annie","last_name":"Morales","email":"amorales0@twitter.com","ip_address":"121.98.210.36"},
+[{"id":1,"gender":"Female","last_name":"Morales","email":"amorales0@twitter.com","ip_address":"121.98.210.36"},
 {"id":2,"gender":"Female","last_name":"Ward","email":"award1@ask.com","ip_address":"123.1.183.78"},
-{"id":3,"gender":"Female","first_name":"Christina","last_name":"Reynolds","email":"creynolds2@si.edu","ip_address":"190.149.241.146"},
+{"id":3,"gender":"Female","last_name":"Reynolds","email":"creynolds2@si.edu","ip_address":"190.149.241.146"},
 {"id":4,"gender":"Male","last_name":"Nichols","email":"rnichols3@answers.com","ip_address":"184.241.6.60"},
-{"id":5,"gender":"Male","first_name":"Howard","last_name":"Phillips","email":"hphillips4@fastcompany.com","ip_address":"209.164.52.90"},
-{"id":6,"gender":"Male","first_name":"Gregory","last_name":"Mills","email":"gmills5@quantcast.com","ip_address":"143.24.201.101"}
+{"id":5,"gender":"Male","last_name":"Phillips","email":"hphillips4@fastcompany.com","ip_address":"209.164.52.90"},
+{"id":6,"gender":"Male","last_name":"Mills","email":"gmills5@quantcast.com","ip_address":"143.24.201.101"}

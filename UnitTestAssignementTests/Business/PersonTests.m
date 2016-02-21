@@ -1,18 +1,19 @@
 //
-//  UnitTestAssignementTests.m
-//  UnitTestAssignementTests
+//  PersonTests.m
+//  PersonTests
 //
 //  Created by JbRieu on 2/19/16.
 //  Copyright © 2016 JbRieu. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
+#import "Person.h"
 
-@interface UnitTestAssignementTests : XCTestCase
+@interface PersonTests : XCTestCase
 
 @end
 
-@implementation UnitTestAssignementTests
+@implementation PersonTests
 
 - (void)setUp {
     [super setUp];
@@ -24,31 +25,33 @@
     [super tearDown];
 }
 
-#pragma mark Test Init
-
+#pragma mark Test InitWithFirstname
 - (void)testInitWithFileName_NormalCase {
-
-}
-
-- (void)testInitWithFileName_MalformedFile {
+    Person *person = [[Person alloc] initWithFirstname:@"Mickael"];
     
+    XCTAssertNotNil(person);
+    XCTAssertEqualObjects([person firstname], @"Mickael", @"Should have the firstname given");
 }
 
-- (void)testInitWithFileName_MissingFirstnames {
+- (void)testInitWithFileName_EmptyName {
+    Person *person = [[Person alloc] initWithFirstname:@""];
     
+    XCTAssertNil(person, @"Our specification is : do not init if name is empty");
 }
 
-- (void)testInitWithFileName_MissingSomeFirstnames {
+- (void)testInitWithFileName_NilName {
+    Person *person = [[Person alloc] initWithFirstname:nil];
     
+    XCTAssertNil(person, @"Our specification is : do not init if name is nil");
 }
 
-#pragma mark Test numberOfPeople
+#pragma mark Test firstname
+- (void)testFirstname_NormalCase {
+    Person *person = [[Person alloc] initWithFirstname:@"Bob"];
+    
+    XCTAssertEqualObjects([person firstname], @"Bob", @"Should have the firstname given");
+}
 
-
-#pragma mark Test numberOfPeopleWithFirstname
-
-
-#pragma mark Test allPeople
 
 
 @end
