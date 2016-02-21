@@ -2,8 +2,8 @@
 //  UnitTestAssignementTests.m
 //  UnitTestAssignementTests
 //
-//  Created by Coupang on 2/19/16.
-//  Copyright © 2016 Coupang. All rights reserved.
+//  Created by JbRieu on 2/19/16.
+//  Copyright © 2016 JbRieu. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
@@ -24,16 +24,31 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+#pragma mark Test Init
+
+- (void)testInitWithFileName_NormalCase {
+
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testInitWithFileName_MalformedFile {
+    
 }
+
+- (void)testInitWithFileName_MissingFirstnames {
+    
+}
+
+- (void)testInitWithFileName_MissingSomeFirstnames {
+    
+}
+
+#pragma mark Test numberOfPeople
+
+
+#pragma mark Test numberOfPeopleWithFirstname
+
+
+#pragma mark Test allPeople
+
 
 @end

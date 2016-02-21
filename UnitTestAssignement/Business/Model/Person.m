@@ -2,8 +2,8 @@
 //  Person.m
 //  UnitTestAssignement
 //
-//  Created by Coupang on 2/20/16.
-//  Copyright © 2016 Coupang. All rights reserved.
+//  Created by JbRieu on 2/20/16.
+//  Copyright © 2016 JbRieu. All rights reserved.
 //
 
 #import "Person.h"
