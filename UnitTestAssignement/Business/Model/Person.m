@@ -19,9 +19,7 @@
 - (instancetype)initWithFirstname:(NSString *)firstname
 {
     self = [super init];
-    if (self) {
-        // NOT IMPLEMENTED YET.
-        // IMPLEMENT TEST FIRST.
+   #warning  NOT IMPLEMENTED YET. IMPLEMENT TEST FIRST.
     }
     return self;
 }
