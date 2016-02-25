@@ -33,6 +33,22 @@
     
 }
 
+- (void)testInitWithJsonArray_Performance {
+    NSString *filePath = [self pathForTestResource:@"people_1000_correct" ofType:@"json"];
+    NSData *peopleJsonData = [NSData dataWithContentsOfFile:filePath];
+    NSError *error = nil;
+    NSArray *peopleJsonArray = [NSJSONSerialization JSONObjectWithData:peopleJsonData options:NSJSONReadingAllowFragments error:&error];
+    
+    XCTAssertNil(error);
+    XCTAssertEqual([peopleJsonArray count], (NSUInteger)1000, @"File should be an array with 1000 items (dictionaries actually)");
+    
+    [self measureBlock:^{
+        PeopleManager *peopleManager = [[PeopleManager alloc] initWithJsonArray:peopleJsonArray];
+        XCTAssertNotNil(peopleManager);
+    }];
+    
+}
+
 - (void)testInitWithJsonArray_MissingSomeFirstnames {
     NSString *filePath = [self pathForTestResource:@"people_missing_some_firstnames" ofType:@"json"];
     NSData *peopleJsonData = [NSData dataWithContentsOfFile:filePath];
