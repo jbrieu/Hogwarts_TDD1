@@ -18,7 +18,14 @@
 #pragma mark Test Init
 
 - (void)testInitWithFileName_NormalCase {
-    PeopleManager *peopleManager = [[PeopleManager alloc] initWithJsonFileNamed:@"people_1000_correct"];
+    NSString *filePath = [self pathForTestResource:@"people_1000_correct" ofType:@"json"];
+    NSData *peopleJsonData = [NSData dataWithContentsOfFile:filePath];
+    NSError *error = nil;
+    NSArray *peopleJsonArray = [NSJSONSerialization JSONObjectWithData:peopleJsonData options:NSJSONReadingAllowFragments error:&error];
+
+    XCTAssertNil(error);
+    
+    PeopleManager *peopleManager = [[PeopleManager alloc] initWithJsonArray:peopleJsonArray];
     
     XCTAssertNotNil(peopleManager);
     XCTAssertEqual([peopleManager numberOfPeople], (NSUInteger)1000, @"Should load 1000 people exactly");
@@ -27,7 +34,14 @@
 }
 
 - (void)testInitWithFileName_MalformedFile {
-    PeopleManager *peopleManager = [[PeopleManager alloc] initWithJsonFileNamed:@"people_malformed_file"];
+    NSString *filePath = [self pathForTestResource:@"people_malformed_file" ofType:@"json"];
+    NSData *peopleJsonData = [NSData dataWithContentsOfFile:filePath];
+    NSError *error = nil;
+    NSArray *peopleJsonArray = [NSJSONSerialization JSONObjectWithData:peopleJsonData options:NSJSONReadingAllowFragments error:&error];
+    
+    XCTAssertNil(error);
+    
+    PeopleManager *peopleManager = [[PeopleManager alloc] initWithJsonArray:peopleJsonArray];
     
     XCTAssertNotNil(peopleManager);
     XCTAssertEqual([peopleManager numberOfPeople], (NSUInteger)0, @"Should load no people but not crashing");
@@ -35,15 +49,28 @@
 }
 
 - (void)testInitWithFileName_MissingSomeFirstnames {
-    PeopleManager *peopleManager = [[PeopleManager alloc] initWithJsonFileNamed:@"people_missing_some_firstnames"];
+    NSString *filePath = [self pathForTestResource:@"people_missing_some_firstnames" ofType:@"json"];
+    NSData *peopleJsonData = [NSData dataWithContentsOfFile:filePath];
+    NSError *error = nil;
+    NSArray *peopleJsonArray = [NSJSONSerialization JSONObjectWithData:peopleJsonData options:NSJSONReadingAllowFragments error:&error];
     
+    XCTAssertNil(error);
+    
+    PeopleManager *peopleManager = [[PeopleManager alloc] initWithJsonArray:peopleJsonArray];
     XCTAssertNotNil(peopleManager);
     XCTAssertEqual([peopleManager numberOfPeople], (NSUInteger)4, @"Should load 4 people only. Rule is : firstname is mandatory, you cannot create Person without first firstname of or nil firstname");
     XCTAssertEqual([[peopleManager allPeople] count], (NSUInteger)4, @"Should load 4 people only. Rule is : firstname is mandatory, you cannot create Person without first firstname of or nil firstname");
 }
 
-- (void)testInitWithFileName_MissingFirstnames {
-    PeopleManager *peopleManager = [[PeopleManager alloc] initWithJsonFileNamed:@"people_missing_all_firstnames"];
+- (void)testInitWithFileName_MissingAllFirstnames {
+    NSString *filePath = [self pathForTestResource:@"people_missing_all_firstnames" ofType:@"json"];
+    NSData *peopleJsonData = [NSData dataWithContentsOfFile:filePath];
+    NSError *error = nil;
+    NSArray *peopleJsonArray = [NSJSONSerialization JSONObjectWithData:peopleJsonData options:NSJSONReadingAllowFragments error:&error];
+    
+    XCTAssertNil(error);
+    
+    PeopleManager *peopleManager = [[PeopleManager alloc] initWithJsonArray:peopleJsonArray];
     
     XCTAssertNotNil(peopleManager);
     XCTAssertEqual([peopleManager numberOfPeople], (NSUInteger)0, @"Should load no people. Rule is : firstname is mandatory, you cannot create Person without first firstname of or nil firstname");
@@ -59,5 +86,10 @@
 
 #pragma mark Test allPeople
 
+
+#pragma Private Test Tooling
+- (NSString *)pathForTestResource:(NSString *)resource ofType:(NSString *)type{
+    return [[NSBundle bundleForClass:self.class] pathForResource:resource ofType:type];
+}
 
 @end
