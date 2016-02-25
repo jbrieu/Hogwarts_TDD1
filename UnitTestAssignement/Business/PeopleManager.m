@@ -17,7 +17,8 @@
 
 @implementation PeopleManager
 
-- (instancetype)initWithJsonDictionary:(NSDictionary *)filename{
+- (instancetype)initWithJsonArray:(NSArray *)jsonArray {
+
     self = [super init];
     if (self) {
         NSMutableArray *parsingArray = [[NSMutableArray alloc] init];
@@ -30,22 +31,24 @@
     return self;
 }
 
-- (NSUInteger)numberOfPeople{
+- (NSUInteger)numberOfPeople {
 #warning  NOT IMPLEMENTED YET. IMPLEMENT TEST FIRST.
     return 0;
 }
 
-- (NSUInteger)numberOfPeopleWithFirstname:(NSString *)firstname{
+
+- (NSUInteger)numberOfPeopleWithFirstname:(NSString *)firstname {
 #warning  NOT IMPLEMENTED YET. IMPLEMENT TEST FIRST.
     return 0;
 }
 
-- (Person *)personWithFirstname:(NSString *)firstname{
+
+- (Person *)personWithFirstname:(NSString *)firstname {
 #warning  NOT IMPLEMENTED YET. IMPLEMENT TEST FIRST.
     return nil;
 }
 
-- (NSArray *)allPeople{
+- (NSArray *)allPeople {
 #warning  NOT IMPLEMENTED YET. IMPLEMENT TEST FIRST.
     return nil;
 }

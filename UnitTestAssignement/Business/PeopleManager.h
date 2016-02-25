@@ -12,7 +12,7 @@
 
 @interface PeopleManager : NSObject
 
-- (instancetype)initWithJsonDictionary:(NSDictionary *)filename;
+- (instancetype)initWithJsonArray:(NSArray *)jsonArray;
 
 - (NSUInteger)numberOfPeople;
 - (NSUInteger)numberOfPeopleWithFirstname:(NSString *)firstname;
