@@ -12,6 +12,7 @@
 @implementation PeopleManager
 
 - (instancetype)initWithJsonArray:(NSArray *)jsonArray {
+
     self = [super init];
     if (self) {
 #warning  NOT IMPLEMENTED YET. IMPLEMENT TEST FIRST.
@@ -25,10 +26,12 @@
     return 0;
 }
 
+
 - (NSUInteger)numberOfPeopleWithFirstname:(NSString *)firstname {
 #warning  NOT IMPLEMENTED YET. IMPLEMENT TEST FIRST.
     return 0;
 }
+
 
 - (Person *)personWithFirstname:(NSString *)firstname {
 #warning  NOT IMPLEMENTED YET. IMPLEMENT TEST FIRST.
