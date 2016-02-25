@@ -11,10 +11,11 @@
 
 @implementation PeopleManager
 
-- (instancetype)initWithJsonFileNamed:(NSString*)filename{
+- (instancetype)initWithJsonDictionary:(NSDictionary *)filename{
     self = [super init];
     if (self) {
 #warning  NOT IMPLEMENTED YET. IMPLEMENT TEST FIRST.
+        
     }
     return self;
 }
@@ -24,12 +25,12 @@
     return 0;
 }
 
-- (NSUInteger)numberOfPeopleWithFirstname:(NSString*)firstname{
+- (NSUInteger)numberOfPeopleWithFirstname:(NSString *)firstname{
 #warning  NOT IMPLEMENTED YET. IMPLEMENT TEST FIRST.
     return 0;
 }
 
-- (Person *)personWithFirstname:(NSString*)firstname{
+- (Person *)personWithFirstname:(NSString *)firstname{
 #warning  NOT IMPLEMENTED YET. IMPLEMENT TEST FIRST.
     return nil;
 }
