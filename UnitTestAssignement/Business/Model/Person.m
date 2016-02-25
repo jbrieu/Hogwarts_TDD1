@@ -20,7 +20,10 @@
 {
     self = [super init];
     if (self) {
-#warning  NOT IMPLEMENTED YET. IMPLEMENT TEST FIRST.
+        if(!firstname.length) {
+            return nil;
+        }
+        _firstname = firstname;
     }
     return self;
 }

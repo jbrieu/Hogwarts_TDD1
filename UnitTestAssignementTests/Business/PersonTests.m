@@ -27,6 +27,9 @@
     Person *person = [[Person alloc] initWithFirstname:@""];
     
     XCTAssertNil(person, @"Our specification is : do not init if name is empty");
+    
+    person = [[Person alloc] initWithFirstname:@"             "];
+    XCTAssertNotNil(person, @"Our specification is : do not init if name is made of empty space");
 }
 
 - (void)testInitWithFileName_NilName {
