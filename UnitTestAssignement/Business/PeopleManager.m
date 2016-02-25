@@ -9,12 +9,22 @@
 #import "PeopleManager.h"
 #import "Person.h"
 
+@interface PeopleManager ()
+
+@property (nonatomic, strong) NSArray *people;
+
+@end
+
 @implementation PeopleManager
 
 - (instancetype)initWithJsonDictionary:(NSDictionary *)filename{
     self = [super init];
     if (self) {
-#warning  NOT IMPLEMENTED YET. IMPLEMENT TEST FIRST.
+        NSMutableArray *parsingArray = [[NSMutableArray alloc] init];
+        
+        
+        
+        _people = [NSArray arrayWithArray:parsingArray];
         
     }
     return self;
