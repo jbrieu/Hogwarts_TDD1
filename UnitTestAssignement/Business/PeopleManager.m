@@ -28,12 +28,15 @@
         for (NSDictionary *personDictionary in jsonArray)
         {
             Person *person = [[Person alloc] initWithFirstname:[personDictionary objectForKey:PEOPLE_FIRSTNAME_KEY]];
+            
             if(person) {
                 [parsingArray addObject:person];
             }
         }
         
         _people = [NSArray arrayWithArray:parsingArray];
+        
+//        [NSThread sleepForTimeInterval:0.2];
         
     }
     return self;
