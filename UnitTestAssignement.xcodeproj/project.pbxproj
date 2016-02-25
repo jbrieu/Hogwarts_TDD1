@@ -16,7 +16,6 @@
 		8F614BC31C79E9F800AD34F4 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F614BC21C79E9F800AD34F4 /* Person.m */; };
 		8F614BC61C79E9FE00AD34F4 /* PeopleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F614BC51C79E9FE00AD34F4 /* PeopleManager.m */; };
 		8F614BCB1C79EB5600AD34F4 /* people_1000_correct.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F614BCA1C79EB5600AD34F4 /* people_1000_correct.json */; };
-		8F614BCD1C79EB7B00AD34F4 /* people_malformed_file.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F614BCC1C79EB7B00AD34F4 /* people_malformed_file.json */; };
 		8F614BCF1C79EBBA00AD34F4 /* people_missing_some_firstnames.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F614BCE1C79EBBA00AD34F4 /* people_missing_some_firstnames.json */; };
 		8F614BD11C79EBF700AD34F4 /* people_missing_all_firstnames.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F614BD01C79EBF700AD34F4 /* people_missing_all_firstnames.json */; };
 		8F6DFEB01C79EFDD00FF897B /* PeopleManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6DFEAF1C79EFDD00FF897B /* PeopleManagerTests.m */; };
@@ -51,7 +50,6 @@
 		8F614BC41C79E9FE00AD34F4 /* PeopleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PeopleManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		8F614BC51C79E9FE00AD34F4 /* PeopleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PeopleManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8F614BCA1C79EB5600AD34F4 /* people_1000_correct.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = people_1000_correct.json; sourceTree = "<group>"; };
-		8F614BCC1C79EB7B00AD34F4 /* people_malformed_file.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = people_malformed_file.json; sourceTree = "<group>"; };
 		8F614BCE1C79EBBA00AD34F4 /* people_missing_some_firstnames.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = people_missing_some_firstnames.json; sourceTree = "<group>"; };
 		8F614BD01C79EBF700AD34F4 /* people_missing_all_firstnames.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = people_missing_all_firstnames.json; sourceTree = "<group>"; };
 		8F6DFEAF1C79EFDD00FF897B /* PeopleManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleManagerTests.m; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				8F614BCA1C79EB5600AD34F4 /* people_1000_correct.json */,
-				8F614BCC1C79EB7B00AD34F4 /* people_malformed_file.json */,
 				8F614BCE1C79EBBA00AD34F4 /* people_missing_some_firstnames.json */,
 				8F614BD01C79EBF700AD34F4 /* people_missing_all_firstnames.json */,
 			);
@@ -267,7 +264,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F614BCD1C79EB7B00AD34F4 /* people_malformed_file.json in Resources */,
 				8F614BCB1C79EB5600AD34F4 /* people_1000_correct.json in Resources */,
 				8F614BCF1C79EBBA00AD34F4 /* people_missing_some_firstnames.json in Resources */,
 				8F614BD11C79EBF700AD34F4 /* people_missing_all_firstnames.json in Resources */,

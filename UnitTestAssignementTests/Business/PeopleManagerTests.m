@@ -17,38 +17,23 @@
 
 #pragma mark Test Init
 
-- (void)testInitWithFileName_NormalCase {
+- (void)testInitWithJsonArray_NormalCase {
     NSString *filePath = [self pathForTestResource:@"people_1000_correct" ofType:@"json"];
     NSData *peopleJsonData = [NSData dataWithContentsOfFile:filePath];
     NSError *error = nil;
     NSArray *peopleJsonArray = [NSJSONSerialization JSONObjectWithData:peopleJsonData options:NSJSONReadingAllowFragments error:&error];
 
     XCTAssertNil(error);
+    XCTAssertEqual([peopleJsonArray count], (NSUInteger)1000, @"File should be an array with 1000 items (dictionaries actually)");
     
     PeopleManager *peopleManager = [[PeopleManager alloc] initWithJsonArray:peopleJsonArray];
     
     XCTAssertNotNil(peopleManager);
     XCTAssertEqual([peopleManager numberOfPeople], (NSUInteger)1000, @"Should load 1000 people exactly");
-    XCTAssertEqual([[peopleManager allPeople] count], (NSUInteger)1000, @"Should load 1000 people exactly");
     
 }
 
-- (void)testInitWithFileName_MalformedFile {
-    NSString *filePath = [self pathForTestResource:@"people_malformed_file" ofType:@"json"];
-    NSData *peopleJsonData = [NSData dataWithContentsOfFile:filePath];
-    NSError *error = nil;
-    NSArray *peopleJsonArray = [NSJSONSerialization JSONObjectWithData:peopleJsonData options:NSJSONReadingAllowFragments error:&error];
-    
-    XCTAssertNil(error);
-    
-    PeopleManager *peopleManager = [[PeopleManager alloc] initWithJsonArray:peopleJsonArray];
-    
-    XCTAssertNotNil(peopleManager);
-    XCTAssertEqual([peopleManager numberOfPeople], (NSUInteger)0, @"Should load no people but not crashing");
-    XCTAssertEqual([[peopleManager allPeople] count], (NSUInteger)0, @"Should load no people but not crashing");
-}
-
-- (void)testInitWithFileName_MissingSomeFirstnames {
+- (void)testInitWithJsonArray_MissingSomeFirstnames {
     NSString *filePath = [self pathForTestResource:@"people_missing_some_firstnames" ofType:@"json"];
     NSData *peopleJsonData = [NSData dataWithContentsOfFile:filePath];
     NSError *error = nil;
@@ -59,10 +44,10 @@
     PeopleManager *peopleManager = [[PeopleManager alloc] initWithJsonArray:peopleJsonArray];
     XCTAssertNotNil(peopleManager);
     XCTAssertEqual([peopleManager numberOfPeople], (NSUInteger)4, @"Should load 4 people only. Rule is : firstname is mandatory, you cannot create Person without first firstname of or nil firstname");
-    XCTAssertEqual([[peopleManager allPeople] count], (NSUInteger)4, @"Should load 4 people only. Rule is : firstname is mandatory, you cannot create Person without first firstname of or nil firstname");
+
 }
 
-- (void)testInitWithFileName_MissingAllFirstnames {
+- (void)testInitWithJsonArray_MissingAllFirstnames {
     NSString *filePath = [self pathForTestResource:@"people_missing_all_firstnames" ofType:@"json"];
     NSData *peopleJsonData = [NSData dataWithContentsOfFile:filePath];
     NSError *error = nil;
@@ -74,12 +59,29 @@
     
     XCTAssertNotNil(peopleManager);
     XCTAssertEqual([peopleManager numberOfPeople], (NSUInteger)0, @"Should load no people. Rule is : firstname is mandatory, you cannot create Person without first firstname of or nil firstname");
-    XCTAssertEqual([[peopleManager allPeople] count], (NSUInteger)0, @"Should load no people. Rule is : firstname is mandatory, you cannot create Person without first firstname of or nil firstname");
 }
 
 
 #pragma mark Test numberOfPeople
 
+- (void)testNumberOfPeople {
+    PeopleManager *peopleManager = [[PeopleManager alloc] initWithJsonArray:@[]];
+    
+    XCTAssertEqual([peopleManager numberOfPeople], (NSUInteger)0, @"Given nobody, count should be zero");
+    
+    NSDictionary *person1 = @{@"firstname" : @"Alice"};
+
+    peopleManager = [[PeopleManager alloc] initWithJsonArray:@[person1]];
+    
+    XCTAssertEqual([peopleManager numberOfPeople], (NSUInteger)1, @"Given two persons, count should be two person");
+    
+    
+    // Try to find what can go wrong, ignore implementation, imagine that implementation is very complex
+    // Other combination possible : what if I change the order ? What if I call other methods first ? What if I give one million people ?
+    // Try to use Setup, Tear Down for people creation if multiple methods needs it
+    // Carreful not to spend to much time on a simple method, only normal and extreme cases, not intermediary
+    // Don't test Init but test NumberOfPeople
+}
 
 #pragma mark Test numberOfPeopleWithFirstname
 
