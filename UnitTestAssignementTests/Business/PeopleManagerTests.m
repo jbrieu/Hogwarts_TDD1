@@ -49,7 +49,6 @@
     
 }
 
-
 - (void)testInitWithJsonArray_MissingSomeFirstnames {
     NSString *filePath = [self pathForTestResource:@"people_missing_some_firstnames" ofType:@"json"];
     NSData *peopleJsonData = [NSData dataWithContentsOfFile:filePath];
