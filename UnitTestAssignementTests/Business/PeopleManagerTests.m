@@ -17,7 +17,7 @@
 
 #pragma mark Test Init
 
-- (void)testInitWithFileName_NormalCase {
+- (void)testInitWithJsonArray_NormalCase {
     NSString *filePath = [self pathForTestResource:@"people_1000_correct" ofType:@"json"];
     NSData *peopleJsonData = [NSData dataWithContentsOfFile:filePath];
     NSError *error = nil;
@@ -33,7 +33,7 @@
     
 }
 
-- (void)testInitWithFileName_MalformedFile {
+- (void)testInitWithJsonArray_MalformedFile {
     NSString *filePath = [self pathForTestResource:@"people_malformed_file" ofType:@"json"];
     NSData *peopleJsonData = [NSData dataWithContentsOfFile:filePath];
     NSError *error = nil;
@@ -48,7 +48,7 @@
     XCTAssertEqual([[peopleManager allPeople] count], (NSUInteger)0, @"Should load no people but not crashing");
 }
 
-- (void)testInitWithFileName_MissingSomeFirstnames {
+- (void)testInitWithJsonArray_MissingSomeFirstnames {
     NSString *filePath = [self pathForTestResource:@"people_missing_some_firstnames" ofType:@"json"];
     NSData *peopleJsonData = [NSData dataWithContentsOfFile:filePath];
     NSError *error = nil;
@@ -62,7 +62,7 @@
     XCTAssertEqual([[peopleManager allPeople] count], (NSUInteger)4, @"Should load 4 people only. Rule is : firstname is mandatory, you cannot create Person without first firstname of or nil firstname");
 }
 
-- (void)testInitWithFileName_MissingAllFirstnames {
+- (void)testInitWithJsonArray_MissingAllFirstnames {
     NSString *filePath = [self pathForTestResource:@"people_missing_all_firstnames" ofType:@"json"];
     NSData *peopleJsonData = [NSData dataWithContentsOfFile:filePath];
     NSError *error = nil;
