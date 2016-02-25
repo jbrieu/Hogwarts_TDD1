@@ -69,15 +69,14 @@
     
     XCTAssertEqual([peopleManager numberOfPeople], (NSUInteger)0, @"Given nobody, count should be zero");
     
-    NSDictionary *person1 = @{@"firstname" : @"Alice"};
-
+    NSDictionary *person1 = @{@"first_name" : @"Alice"};
+    
     peopleManager = [[PeopleManager alloc] initWithJsonArray:@[person1]];
     
-    XCTAssertEqual([peopleManager numberOfPeople], (NSUInteger)1, @"Given two persons, count should be two person");
-    
+    XCTAssertEqual([peopleManager numberOfPeople], (NSUInteger)1, @"Given one person, count should be one person");
     
     // Try to find what can go wrong, ignore implementation, imagine that implementation is very complex
-    // Other combination possible : what if I change the order ? What if I call other methods first ? What if I give one million people ?
+    // Other combination possible : what if I change the order ? What if I call other methods first ? What if I give one million people ? If I change the firstname key what happens ? Should not insert people because of strict rules ?
     // Try to use Setup, Tear Down for people creation if multiple methods needs it
     // Carreful not to spend to much time on a simple method, only normal and extreme cases, not intermediary
     // Don't test Init but test NumberOfPeople
