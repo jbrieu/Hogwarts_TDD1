@@ -9,6 +9,8 @@
 #import "PeopleManager.h"
 #import "Person.h"
 
+#define PEOPLE_FIRSTNAME_KEY @"first_name"
+
 @interface PeopleManager ()
 
 @property (nonatomic, strong) NSArray *people;
@@ -23,7 +25,13 @@
     if (self) {
         NSMutableArray *parsingArray = [[NSMutableArray alloc] init];
         
-        
+        for (NSDictionary *personDictionary in jsonArray)
+        {
+            Person *person = [[Person alloc] initWithFirstname:[personDictionary objectForKey:PEOPLE_FIRSTNAME_KEY]];
+            if(person) {
+                [parsingArray addObject:person];
+            }
+        }
         
         _people = [NSArray arrayWithArray:parsingArray];
         
@@ -32,8 +40,7 @@
 }
 
 - (NSUInteger)numberOfPeople {
-#warning  NOT IMPLEMENTED YET. IMPLEMENT TEST FIRST.
-    return 0;
+    return [_people count];
 }
 
 
